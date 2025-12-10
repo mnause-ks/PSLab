@@ -13,4 +13,6 @@ This package depends on the Python OpenTAP package (v3.0.0) and the `pslab` Pyth
 ### Building
 
 1. Clone the contents of this repository into %TAP_PATH%/Packages
-2. Package should be built and ready to go!
+2. Change into the newly created directory 
+3. Install dependencies with `pip install -r requirements.txt`
+4. The package should be ready to go!
