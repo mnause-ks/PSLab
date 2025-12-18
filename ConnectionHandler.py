@@ -4,6 +4,7 @@ Class to handle multiple connections for multiple instruments
 import threading
 
 from pslab import ScienceLab
+from pslab.external.motor import Servo
 from pslab.instrument.logic_analyzer import LogicAnalyzer
 from pslab.instrument.multimeter import Multimeter
 from pslab.instrument.oscilloscope import Oscilloscope
@@ -51,3 +52,10 @@ class ConnectionHandler(object):
 
     def getMultimeter(self) -> Multimeter:
         return self.__getScienceLab().multimeter
+    
+    def getServos(self, MinAnglePulse: int, MaxAnglePulse: int, AngleRange: int, Frequency: int) -> [Servo]:
+        pwm_generator = self.getPWMGenerator()
+        return [Servo("SQ1", pwm_generator, MinAnglePulse, MaxAnglePulse, AngleRange, Frequency),
+                Servo("SQ2", pwm_generator, MinAnglePulse, MaxAnglePulse, AngleRange, Frequency),
+                Servo("SQ3", pwm_generator, MinAnglePulse, MaxAnglePulse, AngleRange, Frequency),
+                Servo("SQ4", pwm_generator, MinAnglePulse, MaxAnglePulse, AngleRange, Frequency)]
