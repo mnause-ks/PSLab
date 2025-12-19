@@ -2,6 +2,8 @@
 Instrument wrapper for PSLab python API
 """
 
+from time import sleep
+
 from enum import Enum
 
 from OpenTap import Display
@@ -71,4 +73,7 @@ class Servos(Instrument):
                 raise Exception("Unsupported pin " + pin)
 
     def set_angle(self, pin: SquareWavePin, angle: int):
+        """ Wait a few milliseconds to allow the command to be processed between steps.
+        Otherwise, movements could be omitted if the commands are sent too quickly one after the other. """
+        sleep(20/1000)
         self._get_servo(pin).angle = angle
