@@ -20,7 +20,7 @@ class DigitalPin(Enum):
 @attribute(Display("Logic Analyzer", "Logic Analyzer Instrument", "PSLab"))
 class LogicAnalyzer(Instrument):
     def __init__(self):
-        "Set up the properties, methods and default values of the instrument."
+        """Set up the properties, methods and default values of the instrument."""
         super(LogicAnalyzer, self).__init__()  # The base class initializer must be invoked.
 
         self.instrument = None

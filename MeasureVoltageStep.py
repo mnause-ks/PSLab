@@ -8,7 +8,7 @@ from .Multimeter import *
 
 
 @attribute(
-    Display("Measure Voltage", "Measures voltage between pin an GND (in V)", Groups=["PSLab", "Multimeter"]))
+    Display("Measure Voltage", "Measures voltage between pin and GND (in V)", Groups=["PSLab", "Multimeter"]))
 class MeasureVoltageStep(TestStep):
     # Properties
     Channel = property(String, "VOL") \

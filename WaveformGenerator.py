@@ -24,13 +24,13 @@ class WaveformGenerator(Instrument):
         self.Name = "Waveform Generator"
 
     def Open(self):
-        """Called by TAP when the test plans starts."""
+        """Called by TAP when the test plan starts."""
         super(WaveformGenerator, self).Open()
         self.sine = ConnectionHandler.instance().getWaveformGenerator()
         self.square = ConnectionHandler.instance().getPWMGenerator()
 
     def Close(self):
-        """Called by TAP when the test plans ends."""
+        """Called by TAP when the test plan ends."""
         super(WaveformGenerator, self).Close()
 
     def generate_sine(self, channel: SineWavePin, frequency, phase=0):
